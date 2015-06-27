@@ -22,6 +22,10 @@
 #*.deployproj
 #
 
+# Compressed files
+*.zip
+*.7zip
+
 # Delphi compiler-generated binaries (safe to delete)
 #*.exe
 *.dll

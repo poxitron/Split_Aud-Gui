@@ -165,6 +165,7 @@ begin
    INI.WriteInteger('Config','Framerate',Framerate_ComboBox.ItemIndex);
    if SourceFile_Edit.Text<>'' then
      INI.WriteString('Config','Latest',ExtractFilePath(SourceFile_Edit.Text));
+   DragAcceptFiles(SourceFile_Edit.Handle, False);
   finally
    INI.Free;
   end;

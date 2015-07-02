@@ -132,7 +132,7 @@ begin  //Asignar los valores a las variables
   Remove:= ' -r';
   Verbose:= ' -v';
   Framerate:=' -f 24000/1001';
-  avsfile:=GetCurrentDir+'\temp.avs';
+  avsfile := ExtractFileDir(Application.ExeName) + '\temp.avs';
   Application.OnMessage:=AppMessage;
   DragAcceptFiles(SourceFile_Edit.Handle, True);
   with Form1.Constraints do
@@ -143,12 +143,16 @@ begin  //Asignar los valores a las variables
       MaxHeight:=220;
     end;
   try  //Leer y cargar el archivo de configuración
-   INI := TINIFile.Create(GetCurrentDir+'\config.ini');
-   Merge_CheckBox.Checked:=INI.ReadBool('Config','Merge',true);
-   Remove_CheckBox.Checked:=INI.ReadBool('Config','Remove',true);
-   Verbose_CheckBox.Checked:=INI.ReadBool('Config','Verbose',true);
-   Framerate_ComboBox.ItemIndex:=INI.ReadInteger('Config','Framerate',0);
-   OpenDialog.InitialDir:=INI.ReadString('Config','Latest',GetCurrentDir);
+    INI := TINIFile.Create(ExtractFileDir(Application.ExeName) + '\config.ini');
+    Merge_CheckBox.Checked:=INI.ReadBool('Config','Merge',true);
+    Remove_CheckBox.Checked:=INI.ReadBool('Config','Remove',true);
+    Verbose_CheckBox.Checked:=INI.ReadBool('Config','Verbose',true);
+    Framerate_ComboBox.ItemIndex:=INI.ReadInteger('Config','Framerate',0);
+    OpenDialog.InitialDir:=INI.ReadString('Config','Latest',ExtractFileDir(Application.ExeName));
+    Self.Top := INI.ReadInteger('form', 'MainFormTop', Screen.DesktopHeight div 2 - 120);
+    Self.Left := INI.ReadInteger('form', 'MainFormLeft', Screen.DesktopWidth div 2 - 225);
+    Self.Width := INI.ReadInteger('form', 'MainFormWidth', 500);
+    Self.Height := INI.ReadInteger('form', 'MainFormHeight', 520);
   finally
     INI.Free;
   end;
@@ -157,15 +161,21 @@ end;
 //Guardar la configuración al salir
 procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
+  DragAcceptFiles(SourceFile_Edit.Handle, False);
   try
-   INI:=TINIFile.Create(GetCurrentDir+'\config.ini');
+   INI:=TINIFile.Create(ExtractFileDir(Application.ExeName) + '\config.ini');
    INI.WriteBool('Config','Merge',Merge_CheckBox.Checked);
    INI.WriteBool('Config','Remove',Remove_CheckBox.Checked);
    INI.WriteBool('Config','Verbose',Verbose_CheckBox.Checked);
    INI.WriteInteger('Config','Framerate',Framerate_ComboBox.ItemIndex);
    if SourceFile_Edit.Text<>'' then
+   begin
      INI.WriteString('Config','Latest',ExtractFilePath(SourceFile_Edit.Text));
-   DragAcceptFiles(SourceFile_Edit.Handle, False);
+   end;
+   INI.WriteInteger('form', 'MainFormTop', Self.Top);
+   INI.WriteInteger('form', 'MainFormLeft', Self.Left);
+   INI.WriteInteger('form', 'MainFormWidth', Self.Width);
+   INI.WriteInteger('form', 'MainFormHeight', Self.Height);
   finally
    INI.Free;
   end;
@@ -277,7 +287,7 @@ var
 begin
   input:=SourceFile_Edit.Text;
   output:=DestinationFile_Edit.Text;
-  ejecutable:='"'+GetCurrentDir+'\split_aud.exe "';
+  ejecutable:='"'+ExtractFileDir(Application.ExeName)+'\split_aud.exe "';
   parametros:=Merge+Remove+Verbose+Framerate+' -i "'+input+'" -o "'+output+'" "'+avsfile+'"';
   if input='' then
     MessageDlg('No has seleccionado ningún archivo para cortar.', mtError, [mbOK], 0)

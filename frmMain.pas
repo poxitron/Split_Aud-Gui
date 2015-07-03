@@ -17,7 +17,7 @@
     along with Split_Aud Gui.  If not, see <http://www.gnu.org/licenses/>.
 }
 
-unit Main;
+unit frmMain;
 
 interface
 

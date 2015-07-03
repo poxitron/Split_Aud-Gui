@@ -2,7 +2,7 @@ program Split_Aud_Gui;
 
 uses
   Vcl.Forms,
-  Main in 'Main.pas' {Form1},
+  frmMain in 'frmMain.pas' {Form1},
   MyFunctions in 'MyFunctions.pas';
 
 {$R *.res}

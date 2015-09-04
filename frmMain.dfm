@@ -5,6 +5,7 @@ object Form1: TForm1
   ClientHeight = 366
   ClientWidth = 489
   Color = clBtnFace
+  Constraints.MinWidth = 489
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -65,27 +66,27 @@ object Form1: TForm1
   object Label1: TLabel
     Left = 8
     Top = 20
-    Width = 33
+    Width = 36
     Height = 13
-    Caption = 'Source'
+    Caption = 'Origen:'
     Color = clBtnFace
     ParentColor = False
   end
   object Label2: TLabel
     Left = 8
     Top = 52
-    Width = 54
+    Width = 40
     Height = 13
-    Caption = 'Destination'
+    Caption = 'Destino:'
     Color = clBtnFace
     ParentColor = False
   end
   object Label3: TLabel
     Left = 8
     Top = 84
-    Width = 25
+    Width = 36
     Height = 13
-    Caption = 'Trims'
+    Caption = 'Cortes:'
     Color = clBtnFace
     ParentColor = False
   end
@@ -105,7 +106,7 @@ object Form1: TForm1
     Width = 70
     Height = 24
     Anchors = [akTop, akRight]
-    Caption = 'Split'
+    Caption = 'Cortar'
     TabOrder = 10
     OnClick = CutButtonClick
   end
@@ -130,9 +131,9 @@ object Form1: TForm1
     OnClick = DestinationFile_ButtonClick
   end
   object DestinationFile_Edit: TEdit
-    Left = 68
+    Left = 56
     Top = 48
-    Width = 356
+    Width = 368
     Height = 21
     Anchors = [akLeft, akTop, akRight]
     TabOrder = 2
@@ -142,7 +143,7 @@ object Form1: TForm1
     Top = 149
     Width = 70
     Height = 25
-    Caption = 'Hide log'
+    Caption = 'Ocultar log'
     TabOrder = 9
     Visible = False
     OnClick = HideLog_ButtonClick
@@ -159,19 +160,19 @@ object Form1: TForm1
     Visible = False
   end
   object Panel2: TPanel
-    Left = 68
+    Left = 56
     Top = 107
-    Width = 356
+    Width = 370
     Height = 22
     Anchors = [akTop]
     BevelOuter = bvNone
     ShowCaption = False
     TabOrder = 7
     DesignSize = (
-      356
+      370
       22)
     object Label4: TLabel
-      Left = 233
+      Left = 247
       Top = 5
       Width = 54
       Height = 13
@@ -179,25 +180,24 @@ object Form1: TForm1
       Caption = 'Framerate:'
       Color = clBtnFace
       ParentColor = False
-      ExplicitLeft = 221
     end
     object Merge_CheckBox: TCheckBox
       Left = 0
       Top = 2
-      Width = 52
+      Width = 60
       Height = 19
-      Caption = 'Merge'
+      Caption = 'Combinar'
       Checked = True
       State = cbChecked
       TabOrder = 0
       OnClick = Merge_CheckBoxClick
     end
     object Remove_CheckBox: TCheckBox
-      Left = 61
+      Left = 70
       Top = 2
-      Width = 58
+      Width = 60
       Height = 19
-      Caption = 'Remove'
+      Caption = 'Eliminar'
       Checked = True
       State = cbChecked
       TabOrder = 1
@@ -206,16 +206,16 @@ object Form1: TForm1
     object Verbose_CheckBox: TCheckBox
       Left = 132
       Top = 2
-      Width = 60
+      Width = 80
       Height = 19
-      Caption = 'Verbose'
+      Caption = 'Log detallado'
       Checked = True
       State = cbChecked
       TabOrder = 2
       OnClick = Verbose_CheckBoxClick
     end
     object Framerate_ComboBox: TComboBox
-      Left = 291
+      Left = 305
       Top = 1
       Width = 64
       Height = 21
@@ -235,7 +235,7 @@ object Form1: TForm1
     Top = 149
     Width = 70
     Height = 25
-    Caption = 'Show log'
+    Caption = 'Mostrar log'
     TabOrder = 8
     OnClick = ShowLog_ButtonClick
   end
@@ -250,18 +250,18 @@ object Form1: TForm1
     OnClick = SourceFile_ButtonClick
   end
   object SourceFile_Edit: TEdit
-    Left = 68
+    Left = 56
     Top = 16
-    Width = 356
+    Width = 368
     Height = 21
     Anchors = [akLeft, akTop, akRight]
     TabOrder = 0
     OnChange = SourceFile_EditChange
   end
   object Trims_Edit: TEdit
-    Left = 68
-    Top = 80
-    Width = 356
+    Left = 56
+    Top = 82
+    Width = 370
     Height = 21
     Anchors = [akLeft, akTop, akRight]
     TabOrder = 4

@@ -1,7 +1,7 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Split_Aud GUI 1.0'
+  Caption = 'Split_Aud GUI 1.0.1'
   ClientHeight = 366
   ClientWidth = 489
   Color = clBtnFace

@@ -96,7 +96,7 @@ object Form1: TForm1
     Height = 22
     Anchors = [akTop, akRight]
     Caption = '+'
-    TabOrder = 0
+    TabOrder = 5
     OnClick = AddTrim_ButtonClick
   end
   object CutButton: TButton
@@ -106,7 +106,7 @@ object Form1: TForm1
     Height = 24
     Anchors = [akTop, akRight]
     Caption = 'Split'
-    TabOrder = 1
+    TabOrder = 10
     OnClick = CutButtonClick
   end
   object DeleteTrim: TButton
@@ -116,7 +116,7 @@ object Form1: TForm1
     Height = 23
     Anchors = [akTop, akRight]
     Caption = '-'
-    TabOrder = 2
+    TabOrder = 6
     OnClick = DeleteTrim_ButtonClick
   end
   object DestinationFile_Button: TButton
@@ -130,12 +130,12 @@ object Form1: TForm1
     OnClick = DestinationFile_ButtonClick
   end
   object DestinationFile_Edit: TEdit
-    Left = 80
+    Left = 68
     Top = 48
-    Width = 344
+    Width = 356
     Height = 21
     Anchors = [akLeft, akTop, akRight]
-    TabOrder = 4
+    TabOrder = 2
   end
   object HideLog_Button: TButton
     Left = 8
@@ -143,7 +143,7 @@ object Form1: TForm1
     Width = 70
     Height = 25
     Caption = 'Hide log'
-    TabOrder = 5
+    TabOrder = 9
     Visible = False
     OnClick = HideLog_ButtonClick
   end
@@ -155,23 +155,23 @@ object Form1: TForm1
     Anchors = [akLeft, akTop, akRight, akBottom]
     ReadOnly = True
     ScrollBars = ssVertical
-    TabOrder = 6
+    TabOrder = 11
     Visible = False
   end
   object Panel2: TPanel
-    Left = 80
+    Left = 68
     Top = 107
-    Width = 344
-    Height = 30
+    Width = 356
+    Height = 22
     Anchors = [akTop]
     BevelOuter = bvNone
     ShowCaption = False
     TabOrder = 7
     DesignSize = (
-      344
-      30)
+      356
+      22)
     object Label4: TLabel
-      Left = 221
+      Left = 233
       Top = 5
       Width = 54
       Height = 13
@@ -179,6 +179,7 @@ object Form1: TForm1
       Caption = 'Framerate:'
       Color = clBtnFace
       ParentColor = False
+      ExplicitLeft = 221
     end
     object Merge_CheckBox: TCheckBox
       Left = 0
@@ -214,7 +215,7 @@ object Form1: TForm1
       OnClick = Verbose_CheckBoxClick
     end
     object Framerate_ComboBox: TComboBox
-      Left = 279
+      Left = 291
       Top = 1
       Width = 64
       Height = 21
@@ -226,6 +227,7 @@ object Form1: TForm1
       Items.Strings = (
         '23,976'
         '29,970')
+      ExplicitLeft = 279
     end
   end
   object ShowLog_Button: TButton
@@ -244,25 +246,25 @@ object Form1: TForm1
     Height = 23
     Anchors = [akTop, akRight]
     Caption = '...'
-    TabOrder = 9
+    TabOrder = 1
     OnClick = SourceFile_ButtonClick
   end
   object SourceFile_Edit: TEdit
-    Left = 80
+    Left = 68
     Top = 16
-    Width = 344
+    Width = 356
     Height = 21
     Anchors = [akLeft, akTop, akRight]
-    TabOrder = 10
+    TabOrder = 0
     OnChange = SourceFile_EditChange
   end
   object Trims_Edit: TEdit
-    Left = 80
+    Left = 68
     Top = 80
-    Width = 344
+    Width = 356
     Height = 21
     Anchors = [akLeft, akTop, akRight]
-    TabOrder = 11
+    TabOrder = 4
     Text = 'trim(0,0)'
   end
   object OpenDialog: TOpenDialog

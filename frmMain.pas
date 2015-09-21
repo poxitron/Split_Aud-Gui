@@ -61,7 +61,6 @@ type
     procedure CutButtonClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
-    procedure FormDropFiles(Sender: TObject; const FileNames: array of String);
     procedure Framerate_ComboBoxSelect(Sender: TObject);
     procedure Merge_CheckBoxClick(Sender: TObject);
     procedure Remove_CheckBoxClick(Sender: TObject);
@@ -116,16 +115,6 @@ begin
       Handled := True;
     end;
   end;
-end;
-
-procedure TForm1.FormDropFiles(Sender: TObject; const FileNames: array of String);
-var
-  i: Integer;
-begin
- for i := Low(FileNames) to High(FileNames) do
- begin
-  SourceFile_Edit.Text := FileNames[i];
- end;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);

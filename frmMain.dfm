@@ -227,7 +227,6 @@ object Form1: TForm1
       Items.Strings = (
         '23,976'
         '29,970')
-      ExplicitLeft = 279
     end
   end
   object ShowLog_Button: TButton
